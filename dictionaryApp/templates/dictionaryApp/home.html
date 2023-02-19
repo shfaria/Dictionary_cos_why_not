@@ -1,0 +1,39 @@
+{% extends 'dictionaryApp/base.html' %}
+{%  block content %}
+
+<div class="p-5 card">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" required class="form-control" name="search" placeholder="Search your favorite word.......">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">
+                    Search
+                </button>
+            </div>
+        </div>
+    
+    </form>
+</div>
+<div class="p-5 card">
+    <h4>{{word}}</h4>
+    {% if meanings != 'None' %}
+    <p>{{meanings}}</p>
+    {% else %}
+    <p>Not Found</p>
+    {% endif %}
+    <h5>Synonyms</h5>
+    {% if synonyms != None %}
+    <p>{{synonyms}}</p>
+    {% else %}
+    <p>Not Found</p>
+    {% endif %}
+    <h5>Antonyms</h5>
+    {% if antonyms != None %}
+    <p>{{antonyms}}</p>
+    {% else %}
+    <p>Not Found</p>
+    {% endif %}
+
+</div>
+{% endblock %}
